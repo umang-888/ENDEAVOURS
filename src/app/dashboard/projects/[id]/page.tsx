@@ -116,11 +116,18 @@ export default function ProjectDetailPage({
     const [isInviteDialogOpen, setIsInviteDialogOpen] = React.useState(false);
     const [inviteEmail, setInviteEmail] = React.useState("");
 
-    const [taskForm, setTaskForm] = React.useState({
+    const [taskForm, setTaskForm] = React.useState<{
+        title: string;
+        description: string;
+        priority: "low" | "medium" | "high";
+        status: "todo" | "in-progress" | "completed";
+        dueDate: string;
+        assignedTo: string;
+    }>({
         title: "",
         description: "",
-        priority: "medium" as const,
-        status: "todo" as const,
+        priority: "medium",
+        status: "todo",
         dueDate: "",
         assignedTo: "",
     });
